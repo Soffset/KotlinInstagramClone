@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.ripasso.HomeRecycler.HomeRecyclerAdapter
+import com.example.ripasso.HomeRecycler.HomeRecyclerItem
+import com.example.ripasso.HomeRecycler.PostItem
 import com.example.ripasso.HomeStoriesRecycler.StoriesRecyclerAdapter
 import com.example.ripasso.HomeStoriesRecycler.StoryItemViewModel
 import com.example.ripasso.databinding.ActivityMainBinding
@@ -18,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val storyRecycler = binding.StoriesRecycler
-        storyRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        val data = listOf(
+        val storiesData = listOf(
             StoryItemViewModel("Mario", getRandomImageUrl()),
             StoryItemViewModel("Franc1"),
             StoryItemViewModel("ksyai", getRandomImageUrl()),
@@ -32,9 +32,22 @@ class MainActivity : AppCompatActivity() {
             StoryItemViewModel("Serio"),
         )
 
-        val adapter = StoriesRecyclerAdapter(data, this)
+        val postsData = listOf(
+            PostItem(getRandomImageUrl()),
+            PostItem(getRandomImageUrl()),
+            PostItem(getRandomImageUrl()),
+            PostItem(getRandomImageUrl()),
+            PostItem(getRandomImageUrl()),
+        )
+
+        val homeRecycler = binding.homeRecycler
+        homeRecycler.layoutManager = LinearLayoutManager(this)
+
+        val homeData = listOf(
+            HomeRecyclerItem(storiesData),
+        )
 
         // Setting the Adapter with the recyclerview
-        storyRecycler.adapter = adapter
+        homeRecycler.adapter = HomeRecyclerAdapter(homeData, this)
     }
 }
