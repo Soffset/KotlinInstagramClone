@@ -1,9 +1,7 @@
 package com.example.ripasso.HomeRecycler
 
-import com.example.ripasso.HomeStoriesRecycler.StoryItemViewModel
+import com.example.ripasso.HomeStoriesRecycler.StoryItem
 
-data class PostItem(val imageUrl: String? = null) {
-}
+data class PostItem(val imageUrl: String? = null)
 
-data class HomeRecyclerItem(val storyRecyclerData: List<StoryItemViewModel>? = null, val postsData: List<PostItem>? = null) {
-}
+data class HomeRecyclerItem(val storyRecyclerData: List<StoryItem>? = null, val postItem: PostItem? = null)

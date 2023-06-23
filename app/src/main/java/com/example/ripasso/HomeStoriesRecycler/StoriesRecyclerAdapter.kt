@@ -1,9 +1,6 @@
 package com.example.ripasso.HomeStoriesRecycler
 
 import android.content.Context
-import android.content.res.AssetManager
-import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.ripasso.R
-import java.io.InputStream
 
 
-class StoriesRecyclerAdapter(private val mList: List<StoryItemViewModel>, val context: Context) : RecyclerView.Adapter<StoriesRecyclerAdapter.ViewHolder>() {
+class StoriesRecyclerAdapter(private val mList: List<StoryItem>, private val context: Context) : RecyclerView.Adapter<StoriesRecyclerAdapter.ViewHolder>() {
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-       val textView = itemView.findViewById<TextView>(R.id.story_text)
-        val profilePictureView = itemView.findViewById<ImageView>(R.id.StoryUserProfilePicture)
+       val textView: TextView = itemView.findViewById(R.id.story_text)
+        val profilePictureView: ImageView = itemView.findViewById(R.id.StoryUserProfilePicture)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
